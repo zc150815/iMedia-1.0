@@ -15,7 +15,7 @@
 #import "SVProgressHUD.h"
 
 #import "WXApi.h"
-
+#import "WeiboSDK.h"
 
 
 

@@ -34,8 +34,8 @@
 		9DD583521FF1E78800548647 /* PDPublicTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583511FF1E78800548647 /* PDPublicTools.m */; };
 		9DD583581FF1EF1700548647 /* AppDelegate+WeixinService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583571FF1EF1700548647 /* AppDelegate+WeixinService.m */; };
 		9DD583651FF21D4100548647 /* AppDelegate+WeiboService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583631FF21D4100548647 /* AppDelegate+WeiboService.m */; };
-		9DD5836A1FF21D5400548647 /* AppDelegate+JPushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583681FF21D5400548647 /* AppDelegate+JPushService.m */; };
-		9DD5836B1FF21D5400548647 /* AppDelegate+GetuiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583691FF21D5400548647 /* AppDelegate+GetuiService.m */; };
+		9DD583721FF2211800548647 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD5836E1FF2211700548647 /* libWeiboSDK.a */; };
+		9DD583731FF2211800548647 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9DD583701FF2211700548647 /* WeiboSDK.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,10 +95,10 @@
 		9DD583621FF1F54700548647 /* PDMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDMacroHeader.h; sourceTree = "<group>"; };
 		9DD583631FF21D4100548647 /* AppDelegate+WeiboService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+WeiboService.m"; sourceTree = "<group>"; };
 		9DD583641FF21D4100548647 /* AppDelegate+WeiboService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+WeiboService.h"; sourceTree = "<group>"; };
-		9DD583661FF21D5400548647 /* AppDelegate+JPushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JPushService.h"; sourceTree = "<group>"; };
-		9DD583671FF21D5400548647 /* AppDelegate+GetuiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+GetuiService.h"; sourceTree = "<group>"; };
-		9DD583681FF21D5400548647 /* AppDelegate+JPushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JPushService.m"; sourceTree = "<group>"; };
-		9DD583691FF21D5400548647 /* AppDelegate+GetuiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+GetuiService.m"; sourceTree = "<group>"; };
+		9DD5836E1FF2211700548647 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		9DD5836F1FF2211700548647 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
+		9DD583701FF2211700548647 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		9DD583711FF2211700548647 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		C42E64FF1A0626DF38264886 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +112,7 @@
 				9DD583451FF1E25F00548647 /* Security.framework in Frameworks */,
 				9DD583431FF1E25100548647 /* libc++.tbd in Frameworks */,
 				9DD5833D1FF1E22A00548647 /* SystemConfiguration.framework in Frameworks */,
+				9DD583721FF2211800548647 /* libWeiboSDK.a in Frameworks */,
 				9DD5833F1FF1E23A00548647 /* libz.tbd in Frameworks */,
 				9DD5833B1FF1E1DB00548647 /* libWeChatSDK.a in Frameworks */,
 				9DD583411FF1E24500548647 /* libsqlite3.0.tbd in Frameworks */,
@@ -158,10 +159,6 @@
 				9DD583571FF1EF1700548647 /* AppDelegate+WeixinService.m */,
 				9DD583641FF21D4100548647 /* AppDelegate+WeiboService.h */,
 				9DD583631FF21D4100548647 /* AppDelegate+WeiboService.m */,
-				9DD583671FF21D5400548647 /* AppDelegate+GetuiService.h */,
-				9DD583691FF21D5400548647 /* AppDelegate+GetuiService.m */,
-				9DD583661FF21D5400548647 /* AppDelegate+JPushService.h */,
-				9DD583681FF21D5400548647 /* AppDelegate+JPushService.m */,
 				9DD5830A1FECC30C00548647 /* Main */,
 				9DD583201FECC31800548647 /* Other */,
 				9DD582FD1FECC2CB00548647 /* Assets.xcassets */,
@@ -194,6 +191,7 @@
 		9DD583201FECC31800548647 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9DD5836D1FF220E800548647 /* weibo */,
 				9DD583361FF1E17900548647 /* wechat */,
 				9DD5835D1FF1F54700548647 /* Headers */,
 				9DD5832E1FF0F96700548647 /* Foundation+Log.m */,
@@ -234,6 +232,17 @@
 				9DD583621FF1F54700548647 /* PDMacroHeader.h */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		9DD5836D1FF220E800548647 /* weibo */ = {
+			isa = PBXGroup;
+			children = (
+				9DD5836E1FF2211700548647 /* libWeiboSDK.a */,
+				9DD5836F1FF2211700548647 /* WBHttpRequest.h */,
+				9DD583701FF2211700548647 /* WeiboSDK.bundle */,
+				9DD583711FF2211700548647 /* WeiboSDK.h */,
+			);
+			path = weibo;
 			sourceTree = "<group>";
 		};
 		B5CE2DA60FA7C310550FCBF1 /* Frameworks */ = {
@@ -315,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DD582FE1FECC2CB00548647 /* Assets.xcassets in Resources */,
+				9DD583731FF2211800548647 /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,13 +394,11 @@
 				9DD583351FF0FF5F00548647 /* UIView+ZCExtension.m in Sources */,
 				9DD583581FF1EF1700548647 /* AppDelegate+WeixinService.m in Sources */,
 				9DD5831C1FECC30D00548647 /* IMNavigationController.m in Sources */,
-				9DD5836B1FF21D5400548647 /* AppDelegate+GetuiService.m in Sources */,
 				9DD583191FECC30D00548647 /* IMTabBarController.m in Sources */,
 				9DD583041FECC2CB00548647 /* main.m in Sources */,
 				9DD582F61FECC2CB00548647 /* AppDelegate.m in Sources */,
 				9DD5832D1FF0F69900548647 /* IMNetworkingTools.m in Sources */,
 				9DD5832F1FF0F96700548647 /* Foundation+Log.m in Sources */,
-				9DD5836A1FF21D5400548647 /* AppDelegate+JPushService.m in Sources */,
 				9DD5831D1FECC30D00548647 /* IMOthersController.m in Sources */,
 				9DD5834F1FF1E46100548647 /* IMModel.m in Sources */,
 				9DD5831A1FECC30D00548647 /* IMNewsController.m in Sources */,
@@ -524,6 +532,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/Other/wechat",
+					"$(PROJECT_DIR)/Demo/Other/weibo",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronglian.www.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -546,6 +555,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/Other/wechat",
+					"$(PROJECT_DIR)/Demo/Other/weibo",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronglian.www.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

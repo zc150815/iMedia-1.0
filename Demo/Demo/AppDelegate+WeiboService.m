@@ -16,7 +16,6 @@
 }
 
 
-
 //微博接收响应
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
     if ([response isKindOfClass:WBSendMessageToWeiboResponse.class]){
