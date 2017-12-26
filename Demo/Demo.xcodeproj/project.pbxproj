@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D5141347B4ABCFE1E1FA871 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C42E64FF1A0626DF38264886 /* libPods-Demo.a */; };
+		9DD582F61FECC2CB00548647 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD582F51FECC2CB00548647 /* AppDelegate.m */; };
+		9DD582FE1FECC2CB00548647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD582FD1FECC2CB00548647 /* Assets.xcassets */; };
+		9DD583041FECC2CB00548647 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583031FECC2CB00548647 /* main.m */; };
+		9DD583191FECC30D00548647 /* IMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5830D1FECC30C00548647 /* IMTabBarController.m */; };
+		9DD5831A1FECC30D00548647 /* IMNewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5830F1FECC30C00548647 /* IMNewsController.m */; };
+		9DD5831C1FECC30D00548647 /* IMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583121FECC30C00548647 /* IMNavigationController.m */; };
+		9DD5831D1FECC30D00548647 /* IMOthersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583141FECC30C00548647 /* IMOthersController.m */; };
+		9DD583231FECC31800548647 /* UIImage+ZCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583211FECC31800548647 /* UIImage+ZCExtension.m */; };
+		9DD583271FECCE7200548647 /* UIColor+ZCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583261FECCE7200548647 /* UIColor+ZCExtension.m */; };
+		9DD5832A1FECD62900548647 /* IMIndexController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583291FECD62900548647 /* IMIndexController.m */; };
+		9DD5832D1FF0F69900548647 /* IMNetworkingTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5832C1FF0F69900548647 /* IMNetworkingTools.m */; };
+		9DD5832F1FF0F96700548647 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5832E1FF0F96700548647 /* Foundation+Log.m */; };
+		9DD583321FF0FC5300548647 /* ZCSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583311FF0FC5300548647 /* ZCSliderView.m */; };
+		9DD583351FF0FF5F00548647 /* UIView+ZCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583331FF0FF5F00548647 /* UIView+ZCExtension.m */; };
+		9DD5833B1FF1E1DB00548647 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583381FF1E1DB00548647 /* libWeChatSDK.a */; };
+		9DD5833D1FF1E22A00548647 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD5833C1FF1E22600548647 /* SystemConfiguration.framework */; };
+		9DD5833F1FF1E23A00548647 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD5833E1FF1E23A00548647 /* libz.tbd */; };
+		9DD583411FF1E24500548647 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583401FF1E24500548647 /* libsqlite3.0.tbd */; };
+		9DD583431FF1E25100548647 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583421FF1E25100548647 /* libc++.tbd */; };
+		9DD583451FF1E25F00548647 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583441FF1E25B00548647 /* Security.framework */; };
+		9DD583471FF1E26D00548647 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583461FF1E26900548647 /* CoreTelephony.framework */; };
+		9DD583491FF1E27C00548647 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583481FF1E27800548647 /* CFNetwork.framework */; };
+		9DD5834F1FF1E46100548647 /* IMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5834E1FF1E46100548647 /* IMModel.m */; };
+		9DD583521FF1E78800548647 /* PDPublicTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583511FF1E78800548647 /* PDPublicTools.m */; };
+		9DD583581FF1EF1700548647 /* AppDelegate+WeixinService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583571FF1EF1700548647 /* AppDelegate+WeixinService.m */; };
+		9DD583651FF21D4100548647 /* AppDelegate+WeiboService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583631FF21D4100548647 /* AppDelegate+WeiboService.m */; };
+		9DD5836A1FF21D5400548647 /* AppDelegate+JPushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583681FF21D5400548647 /* AppDelegate+JPushService.m */; };
+		9DD5836B1FF21D5400548647 /* AppDelegate+GetuiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583691FF21D5400548647 /* AppDelegate+GetuiService.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		35BC1CCE1248B41EDB53DD0C /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		680B772A3E06311828316083 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		9DD582F11FECC2CB00548647 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DD582F41FECC2CB00548647 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9DD582F51FECC2CB00548647 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9DD582FD1FECC2CB00548647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DD583021FECC2CB00548647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DD583031FECC2CB00548647 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9DD5830B1FECC30C00548647 /* IMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNavigationController.h; sourceTree = "<group>"; };
+		9DD5830C1FECC30C00548647 /* IMOthersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOthersController.h; sourceTree = "<group>"; };
+		9DD5830D1FECC30C00548647 /* IMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTabBarController.m; sourceTree = "<group>"; };
+		9DD5830F1FECC30C00548647 /* IMNewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNewsController.m; sourceTree = "<group>"; };
+		9DD583121FECC30C00548647 /* IMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNavigationController.m; sourceTree = "<group>"; };
+		9DD583131FECC30C00548647 /* IMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTabBarController.h; sourceTree = "<group>"; };
+		9DD583141FECC30C00548647 /* IMOthersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOthersController.m; sourceTree = "<group>"; };
+		9DD583161FECC30C00548647 /* IMNewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNewsController.h; sourceTree = "<group>"; };
+		9DD583211FECC31800548647 /* UIImage+ZCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZCExtension.m"; sourceTree = "<group>"; };
+		9DD583221FECC31800548647 /* UIImage+ZCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZCExtension.h"; sourceTree = "<group>"; };
+		9DD583241FECC32300548647 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		9DD583251FECCE7200548647 /* UIColor+ZCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZCExtension.h"; sourceTree = "<group>"; };
+		9DD583261FECCE7200548647 /* UIColor+ZCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZCExtension.m"; sourceTree = "<group>"; };
+		9DD583281FECD62900548647 /* IMIndexController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMIndexController.h; sourceTree = "<group>"; };
+		9DD583291FECD62900548647 /* IMIndexController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMIndexController.m; sourceTree = "<group>"; };
+		9DD5832B1FF0F69900548647 /* IMNetworkingTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMNetworkingTools.h; sourceTree = "<group>"; };
+		9DD5832C1FF0F69900548647 /* IMNetworkingTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMNetworkingTools.m; sourceTree = "<group>"; };
+		9DD5832E1FF0F96700548647 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		9DD583301FF0FC5300548647 /* ZCSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSliderView.h; sourceTree = "<group>"; };
+		9DD583311FF0FC5300548647 /* ZCSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSliderView.m; sourceTree = "<group>"; };
+		9DD583331FF0FF5F00548647 /* UIView+ZCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZCExtension.m"; sourceTree = "<group>"; };
+		9DD583341FF0FF5F00548647 /* UIView+ZCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZCExtension.h"; sourceTree = "<group>"; };
+		9DD583371FF1E1DB00548647 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		9DD583381FF1E1DB00548647 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		9DD583391FF1E1DB00548647 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		9DD5833A1FF1E1DB00548647 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		9DD5833C1FF1E22600548647 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9DD5833E1FF1E23A00548647 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9DD583401FF1E24500548647 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9DD583421FF1E25100548647 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		9DD583441FF1E25B00548647 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9DD583461FF1E26900548647 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9DD583481FF1E27800548647 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9DD5834D1FF1E46100548647 /* IMModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMModel.h; sourceTree = "<group>"; };
+		9DD5834E1FF1E46100548647 /* IMModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMModel.m; sourceTree = "<group>"; };
+		9DD583501FF1E78800548647 /* PDPublicTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDPublicTools.h; sourceTree = "<group>"; };
+		9DD583511FF1E78800548647 /* PDPublicTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPublicTools.m; sourceTree = "<group>"; };
+		9DD583561FF1EF1700548647 /* AppDelegate+WeixinService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+WeixinService.h"; sourceTree = "<group>"; };
+		9DD583571FF1EF1700548647 /* AppDelegate+WeixinService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+WeixinService.m"; sourceTree = "<group>"; };
+		9DD583591FF1F40000548647 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9DD5835B1FF1F44100548647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9DD5835E1FF1F54700548647 /* PDNetworkingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDNetworkingHeader.h; sourceTree = "<group>"; };
+		9DD5835F1FF1F54700548647 /* PDParameterHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDParameterHeader.h; sourceTree = "<group>"; };
+		9DD583601FF1F54700548647 /* PDToolsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDToolsHeader.h; sourceTree = "<group>"; };
+		9DD583611FF1F54700548647 /* PDThirdHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDThirdHeader.h; sourceTree = "<group>"; };
+		9DD583621FF1F54700548647 /* PDMacroHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDMacroHeader.h; sourceTree = "<group>"; };
+		9DD583631FF21D4100548647 /* AppDelegate+WeiboService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+WeiboService.m"; sourceTree = "<group>"; };
+		9DD583641FF21D4100548647 /* AppDelegate+WeiboService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+WeiboService.h"; sourceTree = "<group>"; };
+		9DD583661FF21D5400548647 /* AppDelegate+JPushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JPushService.h"; sourceTree = "<group>"; };
+		9DD583671FF21D5400548647 /* AppDelegate+GetuiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+GetuiService.h"; sourceTree = "<group>"; };
+		9DD583681FF21D5400548647 /* AppDelegate+JPushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JPushService.m"; sourceTree = "<group>"; };
+		9DD583691FF21D5400548647 /* AppDelegate+GetuiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+GetuiService.m"; sourceTree = "<group>"; };
+		C42E64FF1A0626DF38264886 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DD582EE1FECC2CB00548647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD583491FF1E27C00548647 /* CFNetwork.framework in Frameworks */,
+				9DD583471FF1E26D00548647 /* CoreTelephony.framework in Frameworks */,
+				9DD583451FF1E25F00548647 /* Security.framework in Frameworks */,
+				9DD583431FF1E25100548647 /* libc++.tbd in Frameworks */,
+				9DD5833D1FF1E22A00548647 /* SystemConfiguration.framework in Frameworks */,
+				9DD5833F1FF1E23A00548647 /* libz.tbd in Frameworks */,
+				9DD5833B1FF1E1DB00548647 /* libWeChatSDK.a in Frameworks */,
+				9DD583411FF1E24500548647 /* libsqlite3.0.tbd in Frameworks */,
+				3D5141347B4ABCFE1E1FA871 /* libPods-Demo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		129F5B452F6F1FF36C18D53E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35BC1CCE1248B41EDB53DD0C /* Pods-Demo.debug.xcconfig */,
+				680B772A3E06311828316083 /* Pods-Demo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9DD582E81FECC2CB00548647 = {
+			isa = PBXGroup;
+			children = (
+				9DD582F31FECC2CB00548647 /* Demo */,
+				9DD582F21FECC2CB00548647 /* Products */,
+				129F5B452F6F1FF36C18D53E /* Pods */,
+				B5CE2DA60FA7C310550FCBF1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9DD582F21FECC2CB00548647 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DD582F11FECC2CB00548647 /* Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DD582F31FECC2CB00548647 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				9DD582F41FECC2CB00548647 /* AppDelegate.h */,
+				9DD582F51FECC2CB00548647 /* AppDelegate.m */,
+				9DD583561FF1EF1700548647 /* AppDelegate+WeixinService.h */,
+				9DD583571FF1EF1700548647 /* AppDelegate+WeixinService.m */,
+				9DD583641FF21D4100548647 /* AppDelegate+WeiboService.h */,
+				9DD583631FF21D4100548647 /* AppDelegate+WeiboService.m */,
+				9DD583671FF21D5400548647 /* AppDelegate+GetuiService.h */,
+				9DD583691FF21D5400548647 /* AppDelegate+GetuiService.m */,
+				9DD583661FF21D5400548647 /* AppDelegate+JPushService.h */,
+				9DD583681FF21D5400548647 /* AppDelegate+JPushService.m */,
+				9DD5830A1FECC30C00548647 /* Main */,
+				9DD583201FECC31800548647 /* Other */,
+				9DD582FD1FECC2CB00548647 /* Assets.xcassets */,
+				9DD583021FECC2CB00548647 /* Info.plist */,
+				9DD583031FECC2CB00548647 /* main.m */,
+				9DD583241FECC32300548647 /* PrefixHeader.pch */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		9DD5830A1FECC30C00548647 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9DD583131FECC30C00548647 /* IMTabBarController.h */,
+				9DD5830D1FECC30C00548647 /* IMTabBarController.m */,
+				9DD5830B1FECC30C00548647 /* IMNavigationController.h */,
+				9DD583121FECC30C00548647 /* IMNavigationController.m */,
+				9DD583161FECC30C00548647 /* IMNewsController.h */,
+				9DD5830F1FECC30C00548647 /* IMNewsController.m */,
+				9DD5830C1FECC30C00548647 /* IMOthersController.h */,
+				9DD583141FECC30C00548647 /* IMOthersController.m */,
+				9DD583281FECD62900548647 /* IMIndexController.h */,
+				9DD583291FECD62900548647 /* IMIndexController.m */,
+				9DD5834D1FF1E46100548647 /* IMModel.h */,
+				9DD5834E1FF1E46100548647 /* IMModel.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9DD583201FECC31800548647 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				9DD583361FF1E17900548647 /* wechat */,
+				9DD5835D1FF1F54700548647 /* Headers */,
+				9DD5832E1FF0F96700548647 /* Foundation+Log.m */,
+				9DD583251FECCE7200548647 /* UIColor+ZCExtension.h */,
+				9DD583261FECCE7200548647 /* UIColor+ZCExtension.m */,
+				9DD583211FECC31800548647 /* UIImage+ZCExtension.m */,
+				9DD583221FECC31800548647 /* UIImage+ZCExtension.h */,
+				9DD5832B1FF0F69900548647 /* IMNetworkingTools.h */,
+				9DD5832C1FF0F69900548647 /* IMNetworkingTools.m */,
+				9DD583301FF0FC5300548647 /* ZCSliderView.h */,
+				9DD583311FF0FC5300548647 /* ZCSliderView.m */,
+				9DD583341FF0FF5F00548647 /* UIView+ZCExtension.h */,
+				9DD583331FF0FF5F00548647 /* UIView+ZCExtension.m */,
+				9DD583501FF1E78800548647 /* PDPublicTools.h */,
+				9DD583511FF1E78800548647 /* PDPublicTools.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		9DD583361FF1E17900548647 /* wechat */ = {
+			isa = PBXGroup;
+			children = (
+				9DD583381FF1E1DB00548647 /* libWeChatSDK.a */,
+				9DD583371FF1E1DB00548647 /* WechatAuthSDK.h */,
+				9DD5833A1FF1E1DB00548647 /* WXApi.h */,
+				9DD583391FF1E1DB00548647 /* WXApiObject.h */,
+			);
+			path = wechat;
+			sourceTree = "<group>";
+		};
+		9DD5835D1FF1F54700548647 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9DD5835E1FF1F54700548647 /* PDNetworkingHeader.h */,
+				9DD5835F1FF1F54700548647 /* PDParameterHeader.h */,
+				9DD583601FF1F54700548647 /* PDToolsHeader.h */,
+				9DD583611FF1F54700548647 /* PDThirdHeader.h */,
+				9DD583621FF1F54700548647 /* PDMacroHeader.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		B5CE2DA60FA7C310550FCBF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DD5835B1FF1F44100548647 /* Foundation.framework */,
+				9DD583591FF1F40000548647 /* UIKit.framework */,
+				9DD583481FF1E27800548647 /* CFNetwork.framework */,
+				9DD583461FF1E26900548647 /* CoreTelephony.framework */,
+				9DD583441FF1E25B00548647 /* Security.framework */,
+				9DD583421FF1E25100548647 /* libc++.tbd */,
+				9DD583401FF1E24500548647 /* libsqlite3.0.tbd */,
+				9DD5833E1FF1E23A00548647 /* libz.tbd */,
+				9DD5833C1FF1E22600548647 /* SystemConfiguration.framework */,
+				C42E64FF1A0626DF38264886 /* libPods-Demo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DD582F01FECC2CB00548647 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DD583071FECC2CB00548647 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				EF44A107C6D1EAA1E87BBA6E /* [CP] Check Pods Manifest.lock */,
+				9DD582ED1FECC2CB00548647 /* Sources */,
+				9DD582EE1FECC2CB00548647 /* Frameworks */,
+				9DD582EF1FECC2CB00548647 /* Resources */,
+				16B6698029CB46227CCD0BB9 /* [CP] Embed Pods Frameworks */,
+				D4487AE5664B9D0FEF2319F5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 9DD582F11FECC2CB00548647 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DD582E91FECC2CB00548647 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = ronglian;
+				TargetAttributes = {
+					9DD582F01FECC2CB00548647 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9DD582EC1FECC2CB00548647 /* Build configuration list for PBXProject "Demo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DD582E81FECC2CB00548647;
+			productRefGroup = 9DD582F21FECC2CB00548647 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DD582F01FECC2CB00548647 /* Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DD582EF1FECC2CB00548647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD582FE1FECC2CB00548647 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16B6698029CB46227CCD0BB9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4487AE5664B9D0FEF2319F5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Demo/Pods-Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF44A107C6D1EAA1E87BBA6E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DD582ED1FECC2CB00548647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD583321FF0FC5300548647 /* ZCSliderView.m in Sources */,
+				9DD583351FF0FF5F00548647 /* UIView+ZCExtension.m in Sources */,
+				9DD583581FF1EF1700548647 /* AppDelegate+WeixinService.m in Sources */,
+				9DD5831C1FECC30D00548647 /* IMNavigationController.m in Sources */,
+				9DD5836B1FF21D5400548647 /* AppDelegate+GetuiService.m in Sources */,
+				9DD583191FECC30D00548647 /* IMTabBarController.m in Sources */,
+				9DD583041FECC2CB00548647 /* main.m in Sources */,
+				9DD582F61FECC2CB00548647 /* AppDelegate.m in Sources */,
+				9DD5832D1FF0F69900548647 /* IMNetworkingTools.m in Sources */,
+				9DD5832F1FF0F96700548647 /* Foundation+Log.m in Sources */,
+				9DD5836A1FF21D5400548647 /* AppDelegate+JPushService.m in Sources */,
+				9DD5831D1FECC30D00548647 /* IMOthersController.m in Sources */,
+				9DD5834F1FF1E46100548647 /* IMModel.m in Sources */,
+				9DD5831A1FECC30D00548647 /* IMNewsController.m in Sources */,
+				9DD5832A1FECD62900548647 /* IMIndexController.m in Sources */,
+				9DD583231FECC31800548647 /* UIImage+ZCExtension.m in Sources */,
+				9DD583651FF21D4100548647 /* AppDelegate+WeiboService.m in Sources */,
+				9DD583521FF1E78800548647 /* PDPublicTools.m in Sources */,
+				9DD583271FECCE7200548647 /* UIColor+ZCExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9DD583051FECC2CB00548647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9DD583061FECC2CB00548647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DD583081FECC2CB00548647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35BC1CCE1248B41EDB53DD0C /* Pods-Demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YFJ578HBZ4;
+				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/Other/wechat",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ronglian.www.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DD583091FECC2CB00548647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 680B772A3E06311828316083 /* Pods-Demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YFJ578HBZ4;
+				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/Other/wechat",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ronglian.www.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DD582EC1FECC2CB00548647 /* Build configuration list for PBXProject "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DD583051FECC2CB00548647 /* Debug */,
+				9DD583061FECC2CB00548647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DD583071FECC2CB00548647 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DD583081FECC2CB00548647 /* Debug */,
+				9DD583091FECC2CB00548647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DD582E91FECC2CB00548647 /* Project object */;
+}
