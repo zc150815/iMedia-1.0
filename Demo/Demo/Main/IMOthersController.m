@@ -44,15 +44,15 @@
     UIButton *userInfo = [UIButton buttonWithType:UIButtonTypeCustom];
     userInfo.adjustsImageWhenHighlighted = NO;
     [userInfo setBackgroundColor:[UIColor getColor:COLOR_BASE]];
-    UIImage *userImg = [UIImage scaleFromImage:[UIImage imageNamed:@"default_head"] toSize:CGSizeMake(PD_Fit(60), PD_Fit(60))];
+    UIImage *userImg = [UIImage scaleFromImage:[UIImage imageNamed:@"default_head"] toSize:CGSizeMake(60, 60)];
     [userInfo setImage:[[UIImage alloc]drawCircleImageWithImage:userImg WithCornerRadius:userImg.size.width] forState:UIControlStateNormal];
     [userInfo setTitle:@"用户名" forState:UIControlStateNormal];
-    userInfo.titleLabel.font = PD_Font(15);
+    userInfo.titleLabel.font = [UIFont systemFontOfSize:15];
     [userInfo setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
-    userInfo.frame = CGRectMake(0, 0, self.view.width, PD_Fit(120));
+    userInfo.frame = CGRectMake(0, 0, self.view.width, 120);
     userInfo.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     userInfo.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [userInfo setTitleEdgeInsets:UIEdgeInsetsMake(userInfo.imageView.frame.size.height+PD_Fit(15),-userInfo.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [userInfo setTitleEdgeInsets:UIEdgeInsetsMake(userInfo.imageView.frame.size.height+15,-userInfo.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
     [userInfo setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -userInfo.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
     self.userInfo = userInfo;
     [self.view addSubview:userInfo];
@@ -151,7 +151,7 @@
 -(void)setupLogoutItem{
     
     UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [logoutBtn setTitle:@"Log out" forState:UIControlStateNormal];
+    [logoutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     [logoutBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
     logoutBtn.titleLabel.font = [UIFont systemFontOfSize:17];
     logoutBtn.adjustsImageWhenHighlighted = NO;
@@ -163,7 +163,7 @@
 #pragma mark 添加快速登录视图
 -(void)setupLoginView{
     
-    UIView * loginView = [[UIView alloc]initWithFrame:CGRectMake(PD_Fit(MARGIN_BASE), 0, self.view.width-2*PD_Fit(MARGIN_BASE), 0)];
+    UIView * loginView = [[UIView alloc]initWithFrame:CGRectMake(MARGIN_BASE, 0, self.view.width-2*MARGIN_BASE, 0)];
     loginView.backgroundColor = [UIColor whiteColor];
     loginView.layer.cornerRadius = 10;
     loginView.layer.shadowColor = [UIColor getColor:COLOR_BASE].CGColor;
@@ -178,37 +178,37 @@
     UIButton *log_wx = [UIButton buttonWithType:UIButtonTypeCustom];
     log_wx.tag = PDAPPLoginTypeWechat;
     log_wx.adjustsImageWhenHighlighted = NO;
-    UIImage *wxImg =[UIImage scaleFromImage:[UIImage imageNamed:@"wechat"] toSize:CGSizeMake(PD_Fit(45), PD_Fit(45))];
+    UIImage *wxImg =[UIImage scaleFromImage:[UIImage imageNamed:@"wechat"] toSize:CGSizeMake(45,45)];
     [log_wx setImage:wxImg forState:UIControlStateNormal];
     [log_wx setTitle:@"Please Sign In" forState:UIControlStateNormal];
-    log_wx.titleLabel.font = PD_Font(13);
+    log_wx.titleLabel.font = [UIFont systemFontOfSize:13];
     [log_wx setTitleColor:[UIColor getColor:@"333333"] forState:UIControlStateNormal];
-    log_wx.frame = CGRectMake(0, PD_Fit(25), loginView.width, wxImg.size.height);
+    log_wx.frame = CGRectMake(0, 25, loginView.width, wxImg.size.height);
     [log_wx addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     log_wx.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     log_wx.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [log_wx setTitleEdgeInsets:UIEdgeInsetsMake(log_wx.imageView.frame.size.height+PD_Fit(20),-log_wx.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [log_wx setTitleEdgeInsets:UIEdgeInsetsMake(log_wx.imageView.frame.size.height+20,-log_wx.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
     [log_wx setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -log_wx.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
     [loginView addSubview:log_wx];
     
-    UIView *lines = [[UIView alloc]initWithFrame:CGRectMake(PD_Fit(15), loginView.height/2+PD_Fit(15), loginView.width-2*PD_Fit(15), 1)];
+    UIView *lines = [[UIView alloc]initWithFrame:CGRectMake(15, loginView.height/2+15, loginView.width-2*15, 1)];
     lines.backgroundColor = [UIColor getColor:@"e6e6e6"];
     lines.alpha = 0.5;
     [loginView addSubview:lines];
     
     UILabel *words = [[UILabel alloc]init];
     words.text = @"Or";
-    words.font = PD_Font(17);
+    words.font = [UIFont systemFontOfSize:17];
     words.textAlignment = NSTextAlignmentCenter;
     words.textColor = [UIColor getColor:@"888888"];
     words.backgroundColor = [UIColor whiteColor];
-    words.bounds = CGRectMake(0, 0, PD_Fit(50), PD_Fit(30));
+    words.bounds = CGRectMake(0, 0, 50, 30);
     words.center = lines.center;
     [loginView addSubview:words];
     
     
     NSArray *imgArr = @[@"sina",@"twitter",@"facebook"];
-    CGFloat btnWith = PD_Fit(40);
+    CGFloat btnWith = 40;
     CGFloat margin = (loginView.width - imgArr.count*btnWith)/(imgArr.count+1);
     for (NSInteger i = 0; i < imgArr.count; i++) {
         NSString *imgStr = imgArr[i];
@@ -230,14 +230,14 @@
 #pragma mark 更新UserInfo
 -(void)updateUserInfoWithURL:(NSString*)url userName:(NSString*)name{
     
-    UIImage *placeHolder = [UIImage scaleFromImage:[UIImage imageNamed:@"default_head"] toSize:CGSizeMake(PD_Fit(60), PD_Fit(60))];
+    UIImage *placeHolder = [UIImage scaleFromImage:[UIImage imageNamed:@"default_head"] toSize:CGSizeMake(60, 60)];
     [_userInfo sd_setImageWithURL:[NSURL URLWithString:url] forState:UIControlStateNormal placeholderImage:placeHolder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [_userInfo setImage:[image drawCircleImageWithImage:[UIImage scaleFromImage:image toSize:placeHolder.size] WithCornerRadius:placeHolder.size.width] forState:UIControlStateNormal];
     }];
     [_userInfo setTitle:name forState:UIControlStateNormal];
     _userInfo.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     _userInfo.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [_userInfo setTitleEdgeInsets:UIEdgeInsetsMake(_userInfo.imageView.frame.size.height+PD_Fit(15),-_userInfo.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [_userInfo setTitleEdgeInsets:UIEdgeInsetsMake(_userInfo.imageView.frame.size.height+15,-_userInfo.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
     [_userInfo setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -_userInfo.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
 }
 #pragma mark - 登入按钮点击事件

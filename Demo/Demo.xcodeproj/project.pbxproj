@@ -44,6 +44,7 @@
 		9DD5837D1FF2281000548647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD5837C1FF2280C00548647 /* CoreGraphics.framework */; };
 		9DD5837F1FF2281E00548647 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD5837E1FF2281E00548647 /* libsqlite3.tbd */; };
 		9DD583821FF229B500548647 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583801FF2297D00548647 /* Photos.framework */; };
+		9DD583851FF2475200548647 /* AppDelegate+QQService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583841FF2475200548647 /* AppDelegate+QQService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,8 @@
 		9DD5837C1FF2280C00548647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9DD5837E1FF2281E00548647 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		9DD583801FF2297D00548647 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		9DD583831FF2475200548647 /* AppDelegate+QQService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+QQService.h"; sourceTree = "<group>"; };
+		9DD583841FF2475200548647 /* AppDelegate+QQService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+QQService.m"; sourceTree = "<group>"; };
 		C42E64FF1A0626DF38264886 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,6 +184,8 @@
 				9DD583571FF1EF1700548647 /* AppDelegate+WeixinService.m */,
 				9DD583641FF21D4100548647 /* AppDelegate+WeiboService.h */,
 				9DD583631FF21D4100548647 /* AppDelegate+WeiboService.m */,
+				9DD583831FF2475200548647 /* AppDelegate+QQService.h */,
+				9DD583841FF2475200548647 /* AppDelegate+QQService.m */,
 				9DD5830A1FECC30C00548647 /* Main */,
 				9DD583201FECC31800548647 /* Other */,
 				9DD582FD1FECC2CB00548647 /* Assets.xcassets */,
@@ -420,6 +425,7 @@
 			files = (
 				9DD583321FF0FC5300548647 /* ZCSliderView.m in Sources */,
 				9DD583351FF0FF5F00548647 /* UIView+ZCExtension.m in Sources */,
+				9DD583851FF2475200548647 /* AppDelegate+QQService.m in Sources */,
 				9DD583581FF1EF1700548647 /* AppDelegate+WeixinService.m in Sources */,
 				9DD5831C1FECC30D00548647 /* IMNavigationController.m in Sources */,
 				9DD583191FECC30D00548647 /* IMTabBarController.m in Sources */,

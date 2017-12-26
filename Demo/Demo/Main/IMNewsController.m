@@ -38,6 +38,7 @@
     sliderView.delegate = self;
     sliderView.ZC_TextColor_Nomal = [UIColor getColor:@"000000"];
     sliderView.ZC_TextColor_Selected = [UIColor getColor:COLOR_BASE];
+    sliderView.ZC_Font = PD_Font(15);
     sliderView.hidden = YES;
     [self.view addSubview:sliderView];
     self.sliderView = sliderView;
