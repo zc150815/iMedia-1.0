@@ -11,7 +11,7 @@
 #import "IMModel.h"
 #import "IMNetworkingTools.h"
 
-@interface IMOthersController ()<UITableViewDelegate,UITableViewDataSource>
+@interface IMOthersController ()<UITableViewDelegate,UITableViewDataSource,WBHttpRequestDelegate>
 
 @property (nonatomic, strong) UIButton *userInfo;
 @property (nonatomic, strong) UITableView *tableView;
@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessful) name:@"WBAuthorizeResponseSuccessfulNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessful) name:@"WXAuthorizeResponseSuccessfulNotification" object:nil];
 
     
@@ -338,17 +339,13 @@
 //新浪登入
 - (void)loginWithSina{
     
-//    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-//    request.redirectURI = SINAREDIRECTURL;
-//    request.scope = @"all";
-//    request.userInfo = @{@"SSO_From": @"PDMeController",
-//                         @"Other_Info_1": @"loginWithSina",};
-//    [WeiboSDK sendRequest:request];
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = SINAREDIRECTURL;
+    request.scope = @"all";
+    request.userInfo = @{@"SSO_From": @"PDMeController",
+                         @"Other_Info_1": @"loginWithSina",};
+    [WeiboSDK sendRequest:request];
     
-    //test
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setInteger:PDAPPLoginTypeSina forKey:PD_APPLOGINBY];//记录app登入方式
-    [self loginSuccessful];
 }
 //微信登入
 - (void)loginWithWechat{
@@ -390,7 +387,7 @@
 #pragma mark - 登出方式
 //新浪登出
 - (void)logoutWithSina{
-//    [WeiboSDK logOutWithToken:[[NSUserDefaults standardUserDefaults]objectForKey:PD_ACCESSTOKEN] delegate:self withTag:@"SinaUser"];
+    [WeiboSDK logOutWithToken:[[NSUserDefaults standardUserDefaults]objectForKey:PD_ACCESSTOKEN] delegate:self withTag:@"SinaUser"];
     [self logoutSuccessful];
 
 }
@@ -409,7 +406,25 @@
     [self logoutSuccessful];
 }
 
-
+#pragma mark - WBHttpRequestDelegate代理方法
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result{
+    //    PD_NSLog(@"收到一个来自微博Http请求的网络返回=%@",result);
+    NSData *jsonData = [result dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
+    
+    if(!err) {
+        NSString *resultStr = [dic objectForKey:@"result"];
+        if ([resultStr isEqualToString:@"true"]) {
+            [[PDPublicTools sharedPublicTools] showMessage:@"Logout successful" duration:3];
+            [self logoutSuccessful];
+        }
+    }
+}
+- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error{
+    [[PDPublicTools sharedPublicTools] showMessage:@"Logout failed" duration:3];
+    //    PD_NSLog(@"%@",error);
+}
 #pragma mark - UITableView代理方法
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

@@ -29,13 +29,10 @@ static NSString * const COLOR_BASE = @"4C6CFF"; //主色调
 static NSString * const COLOR_BROWN_DEEP = @"343434";//深灰色
 static NSString * const COLOR_BROWN_LIGHT = @"888888";//浅灰色
 static NSString * const COLOR_BORDER_BASE = @"e6e6e6";//边框颜色
-/****************************其他区**************************************/
+/****************************其他**************************************/
 static NSString * const STATUS = @"status";//status
 static NSString * const DATA = @"data";//data
 
-
-
-//static NSString * const PhoneIDNum= @"861414032240161";//PHONEID
 
 //微信
 static NSString * const WECHATAPPID = @"wxcd5118d435ade7d7";//微信APPID

@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 #import "IMTabBarController.h"
 #import "AppDelegate+WeixinService.h"
+#import "AppDelegate+WeiboService.h"
 
-
-@interface AppDelegate ()<WXApiDelegate>
+@interface AppDelegate ()<WXApiDelegate,WeiboSDKDelegate>
 
 @end
 
@@ -35,6 +35,8 @@
     [SVProgressHUD setBackgroundColor:[UIColor clearColor]];
     
     [self initWeixinService];
+    
+    [self initWeiboService];
     
     return YES;
 }
@@ -67,16 +69,16 @@
 }
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     
-//    if ([url.absoluteString containsString:SINAAPPID]) {
-//        return [WeiboSDK handleOpenURL:url delegate:self];
-//    }
+    if ([url.absoluteString containsString:SINAAPPID]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    }
     return [WXApi handleOpenURL:url delegate:self];
 }
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     
-//    if ([url.absoluteString containsString:SINAAPPID]) {
-//        return [WeiboSDK handleOpenURL:url delegate:self];
-//    }
+    if ([url.absoluteString containsString:SINAAPPID]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    }
     return [WXApi handleOpenURL:url delegate:self];
 }
 
