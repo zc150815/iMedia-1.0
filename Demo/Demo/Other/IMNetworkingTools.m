@@ -57,7 +57,7 @@
             typeStr = @"weibo";
         }
             break;
-        case PDAPPLoginTypeTwitter:{
+        case PDAPPLoginTypeQQ:{
             typeStr = @"twitter";
         }
             break;
@@ -98,6 +98,7 @@
         callBack(nil,error);
     }];
 }
+
 //微博登录获取用户信息
 -(void)getWeiboUserInfoWithCallBack:(callBack)callBack{
     
@@ -110,6 +111,11 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         callBack(nil,error);
     }];
+    
+}
+
+//QQ登录获取用户信息
+-(void)getQQUserInfoWithCallBack:(callBack)callBack{
     
 }
 @end

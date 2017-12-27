@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate (WeixinService)
+@interface AppDelegate (WeixinService)<WXApiDelegate>
 
 -(void)initWeixinService;
 

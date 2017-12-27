@@ -11,7 +11,8 @@
 #import "AppDelegate+WeixinService.h"
 #import "AppDelegate+WeiboService.h"
 
-@interface AppDelegate ()<WXApiDelegate,WeiboSDKDelegate>
+
+@interface AppDelegate ()
 
 @end
 
@@ -37,6 +38,7 @@
     [self initWeixinService];
     
     [self initWeiboService];
+    
     
     return YES;
 }
@@ -69,17 +71,34 @@
 }
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     
+    NSLog(@"handleOpenURL = %@",url.absoluteString);
+    
     if ([url.absoluteString containsString:SINAAPPID]) {
         return [WeiboSDK handleOpenURL:url delegate:self];
+    }
+    if ([url.absoluteString containsString:QQAPPID]) {
+        return [TencentOAuth HandleOpenURL:url];
     }
     return [WXApi handleOpenURL:url delegate:self];
 }
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     
+    NSLog(@"handleOpenURL = %@",url.absoluteString);
+
     if ([url.absoluteString containsString:SINAAPPID]) {
         return [WeiboSDK handleOpenURL:url delegate:self];
     }
+    if ([url.absoluteString containsString:QQAPPID]) {
+        return [TencentOAuth HandleOpenURL:url];
+    }
     return [WXApi handleOpenURL:url delegate:self];
 }
+
+//-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+//    NSLog(@"handleOpenURL = %@",url);
+//
+//    [QQApiInterface handleOpenURL:url delegate:self];
+//    return [TencentOAuth HandleOpenURL:url];
+//}
 
 @end

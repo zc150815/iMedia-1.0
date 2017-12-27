@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate (WeiboService)
+@interface AppDelegate (WeiboService)<WeiboSDKDelegate>
 
 -(void)initWeiboService;
 @end

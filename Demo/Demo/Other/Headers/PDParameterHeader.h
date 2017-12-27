@@ -34,6 +34,10 @@ static NSString * const STATUS = @"status";//status
 static NSString * const DATA = @"data";//data
 
 
+//QQ
+static NSString * const QQAPPID = @"1106639630";//QQAPPID
+static NSString * const QQAPPKEY = @"T5ECcVwLcFUHzahW";//QQAPPKEY
+
 //微信
 static NSString * const WECHATAPPID = @"wxcd5118d435ade7d7";//微信APPID
 static NSString * const WECHATAPPSECRET = @"0c57be6105293b459d66ef64eb8333c4";//微信APPSECRET

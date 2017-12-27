@@ -5,11 +5,13 @@
 //  Created by 123 on 2017/12/22.
 //  Copyright © 2017年 ronglian. All rights reserved.
 //
-
+//#import "AppDelegate.h"
+//#import "AppDelegate+QQService.h"
 #import "IMOthersController.h"
 #import "IMIndexController.h"
 #import "IMModel.h"
 #import "IMNetworkingTools.h"
+#import "IMQQService.h"
 
 @interface IMOthersController ()<UITableViewDelegate,UITableViewDataSource,WBHttpRequestDelegate>
 
@@ -135,7 +137,7 @@
             }];
         }
             break;
-        case PDAPPLoginTypeTwitter:{
+        case PDAPPLoginTypeQQ:{
             
         }
             break;
@@ -252,8 +254,8 @@
             [self loginWithSina];
         }
             break;
-        case PDAPPLoginTypeTwitter:{//twitter登录
-            [self loginWithTwtter];
+        case PDAPPLoginTypeQQ:{//twitter登录
+            [self loginWithQQ];
         }
             break;
         case PDAPPLoginTypeFacebook:{//facebook登录
@@ -276,7 +278,7 @@
         case PDAPPLoginTypeSina://新浪微博登出
             [self logoutWithSina];
             break;
-        case PDAPPLoginTypeTwitter://twitter登出
+        case PDAPPLoginTypeQQ://twitter登出
             [self logoutWithTwtter];
             break;
         case PDAPPLoginTypeFacebook://facebook登出
@@ -369,11 +371,16 @@
 }
 
 //Twitter登入
-- (void)loginWithTwtter{
-    //test
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setInteger:PDAPPLoginTypeTwitter forKey:PD_APPLOGINBY];//记录app登入方式
-    [self loginSuccessful];
+- (void)loginWithQQ{
+//    //test
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    [userDefault setInteger:PDAPPLoginTypeQQ forKey:PD_APPLOGINBY];//记录app登入方式
+//    [self loginSuccessful];
+    
+//    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//    [appDelegate initQQService];
+    
+    [IMQQService initQQService];
 
 }
 //facebook登入

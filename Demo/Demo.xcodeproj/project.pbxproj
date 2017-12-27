@@ -44,7 +44,10 @@
 		9DD5837D1FF2281000548647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD5837C1FF2280C00548647 /* CoreGraphics.framework */; };
 		9DD5837F1FF2281E00548647 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD5837E1FF2281E00548647 /* libsqlite3.tbd */; };
 		9DD583821FF229B500548647 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583801FF2297D00548647 /* Photos.framework */; };
-		9DD583851FF2475200548647 /* AppDelegate+QQService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583841FF2475200548647 /* AppDelegate+QQService.m */; };
+		9DD583881FF24CEF00548647 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583871FF24CEF00548647 /* TencentOpenAPI.framework */; };
+		9DD5838A1FF24DE400548647 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD583891FF24DE400548647 /* libiconv.tbd */; };
+		9DD5838C1FF24DF900548647 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD5838B1FF24DF900548647 /* libstdc++.tbd */; };
+		9DD583991FF3759B00548647 /* IMQQService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583981FF3759B00548647 /* IMQQService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,8 +117,11 @@
 		9DD5837C1FF2280C00548647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9DD5837E1FF2281E00548647 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		9DD583801FF2297D00548647 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		9DD583831FF2475200548647 /* AppDelegate+QQService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+QQService.h"; sourceTree = "<group>"; };
-		9DD583841FF2475200548647 /* AppDelegate+QQService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+QQService.m"; sourceTree = "<group>"; };
+		9DD583871FF24CEF00548647 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		9DD583891FF24DE400548647 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		9DD5838B1FF24DF900548647 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		9DD583971FF3759B00548647 /* IMQQService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMQQService.h; sourceTree = "<group>"; };
+		9DD583981FF3759B00548647 /* IMQQService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMQQService.m; sourceTree = "<group>"; };
 		C42E64FF1A0626DF38264886 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,14 +135,17 @@
 				9DD5837B1FF2280400548647 /* Foundation.framework in Frameworks */,
 				9DD5837A1FF227FC00548647 /* UIKit.framework in Frameworks */,
 				9DD583791FF227F200548647 /* CoreText.framework in Frameworks */,
+				9DD5838C1FF24DF900548647 /* libstdc++.tbd in Frameworks */,
 				9DD583771FF227D800548647 /* ImageIO.framework in Frameworks */,
 				9DD583751FF227CB00548647 /* QuartzCore.framework in Frameworks */,
 				9DD583491FF1E27C00548647 /* CFNetwork.framework in Frameworks */,
+				9DD583881FF24CEF00548647 /* TencentOpenAPI.framework in Frameworks */,
 				9DD583471FF1E26D00548647 /* CoreTelephony.framework in Frameworks */,
 				9DD583451FF1E25F00548647 /* Security.framework in Frameworks */,
 				9DD583431FF1E25100548647 /* libc++.tbd in Frameworks */,
 				9DD5833D1FF1E22A00548647 /* SystemConfiguration.framework in Frameworks */,
 				9DD583721FF2211800548647 /* libWeiboSDK.a in Frameworks */,
+				9DD5838A1FF24DE400548647 /* libiconv.tbd in Frameworks */,
 				9DD5833F1FF1E23A00548647 /* libz.tbd in Frameworks */,
 				9DD5833B1FF1E1DB00548647 /* libWeChatSDK.a in Frameworks */,
 				9DD5837F1FF2281E00548647 /* libsqlite3.tbd in Frameworks */,
@@ -184,8 +193,6 @@
 				9DD583571FF1EF1700548647 /* AppDelegate+WeixinService.m */,
 				9DD583641FF21D4100548647 /* AppDelegate+WeiboService.h */,
 				9DD583631FF21D4100548647 /* AppDelegate+WeiboService.m */,
-				9DD583831FF2475200548647 /* AppDelegate+QQService.h */,
-				9DD583841FF2475200548647 /* AppDelegate+QQService.m */,
 				9DD5830A1FECC30C00548647 /* Main */,
 				9DD583201FECC31800548647 /* Other */,
 				9DD582FD1FECC2CB00548647 /* Assets.xcassets */,
@@ -218,6 +225,7 @@
 		9DD583201FECC31800548647 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9DD583861FF247B500548647 /* qq */,
 				9DD5836D1FF220E800548647 /* weibo */,
 				9DD583361FF1E17900548647 /* wechat */,
 				9DD5835D1FF1F54700548647 /* Headers */,
@@ -272,9 +280,21 @@
 			path = weibo;
 			sourceTree = "<group>";
 		};
+		9DD583861FF247B500548647 /* qq */ = {
+			isa = PBXGroup;
+			children = (
+				9DD583971FF3759B00548647 /* IMQQService.h */,
+				9DD583981FF3759B00548647 /* IMQQService.m */,
+				9DD583871FF24CEF00548647 /* TencentOpenAPI.framework */,
+			);
+			path = qq;
+			sourceTree = "<group>";
+		};
 		B5CE2DA60FA7C310550FCBF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9DD5838B1FF24DF900548647 /* libstdc++.tbd */,
+				9DD583891FF24DE400548647 /* libiconv.tbd */,
 				9DD583801FF2297D00548647 /* Photos.framework */,
 				9DD5837E1FF2281E00548647 /* libsqlite3.tbd */,
 				9DD5837C1FF2280C00548647 /* CoreGraphics.framework */,
@@ -423,9 +443,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DD583991FF3759B00548647 /* IMQQService.m in Sources */,
 				9DD583321FF0FC5300548647 /* ZCSliderView.m in Sources */,
 				9DD583351FF0FF5F00548647 /* UIView+ZCExtension.m in Sources */,
-				9DD583851FF2475200548647 /* AppDelegate+QQService.m in Sources */,
 				9DD583581FF1EF1700548647 /* AppDelegate+WeixinService.m in Sources */,
 				9DD5831C1FECC30D00548647 /* IMNavigationController.m in Sources */,
 				9DD583191FECC30D00548647 /* IMTabBarController.m in Sources */,
@@ -559,6 +579,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YFJ578HBZ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/Other/qq",
+				);
 				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -582,6 +606,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YFJ578HBZ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo/Other/qq",
+				);
 				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
