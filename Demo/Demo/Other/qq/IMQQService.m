@@ -29,6 +29,12 @@
 +(void)initQQService{
     [[self sharedQQService]initQQService];
 }
++(void)logoutQQService{
+    [[self sharedQQService]logoutQQService];
+}
++(void)getUserInfoWithCallBack:(QQCallBack)callBack{
+    [[self sharedQQService]getUserInfoWithCallBack:callBack];
+}
 -(void)initQQService{
     
     TencentOAuth *tencentOAuth  = [[TencentOAuth alloc]initWithAppId:QQAPPID andDelegate:self];
@@ -37,6 +43,13 @@
     [tencentOAuth authorize:permissions inSafari:NO];
     self.tencentOAuth = tencentOAuth;
     
+}
+-(void)getUserInfoWithCallBack:(QQCallBack)callBack{
+    [self.tencentOAuth getUserInfo];
+}
+-(void)logoutQQService{
+    
+    [self.tencentOAuth logout:self];
 }
 #pragma mark - TencentLoginDelegate代理方法
 /**
@@ -48,10 +61,12 @@
     if (self.tencentOAuth.accessToken && 0 != [self.tencentOAuth.accessToken length]){
         //  记录登录用户的OpenID、Token以及过期时间
         NSLog(@"QQaccessToken = %@",self.tencentOAuth.accessToken);
-        
-        
+
+        [self.tencentOAuth setAccessToken:self.tencentOAuth.accessToken] ;
+        [self.tencentOAuth setOpenId:self.tencentOAuth.openId] ;
+        [self.tencentOAuth setExpirationDate:self.tencentOAuth.expirationDate] ;
         [self.tencentOAuth getUserInfo];
-        
+
     }
     
 }
@@ -71,6 +86,9 @@
     NSLog(@"登录时网络有问题的回调");
 }
 
+
+
+
 #pragma mark - TencentSessionDelegate代理方法
 /**
  * 获取用户个人信息回调
@@ -87,6 +105,13 @@
         
         NSLog(@"getUserInfoResponse==%@",response);
         NSLog(@"%@",response.jsonResponse);
+        
+        NSString *nickName = [response.jsonResponse objectForKey:@"nickname"];
+        NSString *figureurl = [response.jsonResponse objectForKey:@"figureurl_2"];
+        
+        NSDictionary *userInfo = @{@"nickname":nickName,@"headimgurl":figureurl,@"openID":self.tencentOAuth.openId};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"QQAuthorizeResponseSuccessfulNotification" object:nil userInfo:userInfo];
+
     }else{
         NSLog(@"errorMsg == %@",response.errorMsg);
     }
@@ -96,7 +121,10 @@
 
 }
 
-
+-(void)tencentDidLogout{
+    
+    [[PDPublicTools sharedPublicTools]showMessage:@"登出成功" duration:3];
+}
 #pragma mark - QQApiInterfaceDelegate代理方法
 /**
  处理来至QQ的请求

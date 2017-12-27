@@ -27,9 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessful) name:@"WBAuthorizeResponseSuccessfulNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessful) name:@"WXAuthorizeResponseSuccessfulNotification" object:nil];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessful:) name:@"WBAuthorizeResponseSuccessfulNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessful:) name:@"WXAuthorizeResponseSuccessfulNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessful:) name:@"QQAuthorizeResponseSuccessfulNotification" object:nil];
     
     [self setupUI];
     [self judgeIsOnLine];
@@ -94,7 +94,7 @@
             [self logoutSuccessful];
             break;
         default://最近已经登录过
-            [self loginSuccessful];
+            [self loginSuccessful:nil];
             break;
     }
 }
@@ -163,79 +163,148 @@
     
 }
 #pragma mark 添加快速登录视图
+-(UIView *)loginView{
+    
+    if (!_loginView) {
+        
+        _loginView = [[UIView alloc]initWithFrame:CGRectMake(MARGIN_BASE, 0, self.view.width-2*MARGIN_BASE, 0)];
+        _loginView.backgroundColor = [UIColor whiteColor];
+        _loginView.layer.cornerRadius = 10;
+        _loginView.layer.shadowColor = [UIColor getColor:COLOR_BASE].CGColor;
+        _loginView.layer.shadowRadius = 5;
+        _loginView.layer.shadowOpacity = 0.5;
+        _loginView.layer.shadowOffset = CGSizeMake(0.5, 0.5);
+        _loginView.height = 250;
+        
+        UIButton *log_wx = [UIButton buttonWithType:UIButtonTypeCustom];
+        log_wx.tag = PDAPPLoginTypeWechat;
+        log_wx.adjustsImageWhenHighlighted = NO;
+        UIImage *wxImg =[UIImage scaleFromImage:[UIImage imageNamed:@"wechat"] toSize:CGSizeMake(45,45)];
+        [log_wx setImage:wxImg forState:UIControlStateNormal];
+        [log_wx setTitle:@"Please Sign In" forState:UIControlStateNormal];
+        log_wx.titleLabel.font = [UIFont systemFontOfSize:13];
+        [log_wx setTitleColor:[UIColor getColor:@"333333"] forState:UIControlStateNormal];
+        log_wx.frame = CGRectMake(0, 25, _loginView.width, wxImg.size.height);
+        [log_wx addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        log_wx.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+        log_wx.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [log_wx setTitleEdgeInsets:UIEdgeInsetsMake(log_wx.imageView.frame.size.height+20,-log_wx.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+        [log_wx setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -log_wx.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
+        [_loginView addSubview:log_wx];
+        
+        UIView *lines = [[UIView alloc]initWithFrame:CGRectMake(15, _loginView.height/2+15, _loginView.width-2*15, 1)];
+        lines.backgroundColor = [UIColor getColor:@"e6e6e6"];
+        lines.alpha = 0.5;
+        [_loginView addSubview:lines];
+        
+        UILabel *words = [[UILabel alloc]init];
+        words.text = @"Or";
+        words.font = [UIFont systemFontOfSize:17];
+        words.textAlignment = NSTextAlignmentCenter;
+        words.textColor = [UIColor getColor:@"888888"];
+        words.backgroundColor = [UIColor whiteColor];
+        words.bounds = CGRectMake(0, 0, 50, 30);
+        words.center = lines.center;
+        [_loginView addSubview:words];
+        
+        
+        NSArray *imgArr = @[@"sina",@"tencentqq",@"facebook"];
+        CGFloat btnWith = 40;
+        CGFloat margin = (_loginView.width - imgArr.count*btnWith)/(imgArr.count+1);
+        for (NSInteger i = 0; i < imgArr.count; i++) {
+            NSString *imgStr = imgArr[i];
+            
+            UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            loginBtn.tag = PDAPPLoginTypeSina+i;
+            loginBtn.adjustsImageWhenHighlighted = NO;
+            UIImage *btnImg = [UIImage scaleFromImage:[UIImage imageNamed:imgStr] toSize:CGSizeMake(btnWith, btnWith)];
+            [loginBtn setImage:btnImg forState:UIControlStateNormal];
+            loginBtn.bounds = CGRectMake(0, 0, btnImg.size.width, btnImg.size.height);
+            loginBtn.center = CGPointMake(margin+i*(margin+btnWith)+btnWith/2, (_loginView.height-CGRectGetMaxY(words.frame))/2+CGRectGetMaxY(words.frame));
+            [loginBtn addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+            [_loginView addSubview:loginBtn];
+        }
+        
+    }
+    return _loginView;
+}
 -(void)setupLoginView{
     
-    UIView * loginView = [[UIView alloc]initWithFrame:CGRectMake(MARGIN_BASE, 0, self.view.width-2*MARGIN_BASE, 0)];
-    loginView.backgroundColor = [UIColor whiteColor];
-    loginView.layer.cornerRadius = 10;
-    loginView.layer.shadowColor = [UIColor getColor:COLOR_BASE].CGColor;
-    loginView.layer.shadowRadius = 5;
-    loginView.layer.shadowOpacity = 0.5;
-    loginView.layer.shadowOffset = CGSizeMake(0.5, 0.5);
-    loginView.height = 250;
-    self.loginView = loginView;
-    [self.view addSubview:loginView];
+//    UIView * loginView = [[UIView alloc]initWithFrame:CGRectMake(MARGIN_BASE, 0, self.view.width-2*MARGIN_BASE, 0)];
+//    loginView.backgroundColor = [UIColor whiteColor];
+//    loginView.layer.cornerRadius = 10;
+//    loginView.layer.shadowColor = [UIColor getColor:COLOR_BASE].CGColor;
+//    loginView.layer.shadowRadius = 5;
+//    loginView.layer.shadowOpacity = 0.5;
+//    loginView.layer.shadowOffset = CGSizeMake(0.5, 0.5);
+//    loginView.height = 250;
+//    self.loginView = loginView;
+    [self.view addSubview:self.loginView];
     
     
-    UIButton *log_wx = [UIButton buttonWithType:UIButtonTypeCustom];
-    log_wx.tag = PDAPPLoginTypeWechat;
-    log_wx.adjustsImageWhenHighlighted = NO;
-    UIImage *wxImg =[UIImage scaleFromImage:[UIImage imageNamed:@"wechat"] toSize:CGSizeMake(45,45)];
-    [log_wx setImage:wxImg forState:UIControlStateNormal];
-    [log_wx setTitle:@"Please Sign In" forState:UIControlStateNormal];
-    log_wx.titleLabel.font = [UIFont systemFontOfSize:13];
-    [log_wx setTitleColor:[UIColor getColor:@"333333"] forState:UIControlStateNormal];
-    log_wx.frame = CGRectMake(0, 25, loginView.width, wxImg.size.height);
-    [log_wx addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    log_wx.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
-    log_wx.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [log_wx setTitleEdgeInsets:UIEdgeInsetsMake(log_wx.imageView.frame.size.height+20,-log_wx.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
-    [log_wx setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -log_wx.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
-    [loginView addSubview:log_wx];
-    
-    UIView *lines = [[UIView alloc]initWithFrame:CGRectMake(15, loginView.height/2+15, loginView.width-2*15, 1)];
-    lines.backgroundColor = [UIColor getColor:@"e6e6e6"];
-    lines.alpha = 0.5;
-    [loginView addSubview:lines];
-    
-    UILabel *words = [[UILabel alloc]init];
-    words.text = @"Or";
-    words.font = [UIFont systemFontOfSize:17];
-    words.textAlignment = NSTextAlignmentCenter;
-    words.textColor = [UIColor getColor:@"888888"];
-    words.backgroundColor = [UIColor whiteColor];
-    words.bounds = CGRectMake(0, 0, 50, 30);
-    words.center = lines.center;
-    [loginView addSubview:words];
-    
-    
-    NSArray *imgArr = @[@"sina",@"twitter",@"facebook"];
-    CGFloat btnWith = 40;
-    CGFloat margin = (loginView.width - imgArr.count*btnWith)/(imgArr.count+1);
-    for (NSInteger i = 0; i < imgArr.count; i++) {
-        NSString *imgStr = imgArr[i];
-        
-        UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        loginBtn.tag = PDAPPLoginTypeSina+i;
-        loginBtn.adjustsImageWhenHighlighted = NO;
-        UIImage *btnImg = [UIImage scaleFromImage:[UIImage imageNamed:imgStr] toSize:CGSizeMake(btnWith, btnWith)];
-        [loginBtn setImage:btnImg forState:UIControlStateNormal];
-        loginBtn.bounds = CGRectMake(0, 0, btnImg.size.width, btnImg.size.height);
-        loginBtn.center = CGPointMake(margin+i*(margin+btnWith)+btnWith/2, (loginView.height-CGRectGetMaxY(words.frame))/2+CGRectGetMaxY(words.frame));
-        [loginBtn addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [loginView addSubview:loginBtn];
-    }
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(loginView.height-self.tableView.y, 0, 0, 0);
+//    UIButton *log_wx = [UIButton buttonWithType:UIButtonTypeCustom];
+//    log_wx.tag = PDAPPLoginTypeWechat;
+//    log_wx.adjustsImageWhenHighlighted = NO;
+//    UIImage *wxImg =[UIImage scaleFromImage:[UIImage imageNamed:@"wechat"] toSize:CGSizeMake(45,45)];
+//    [log_wx setImage:wxImg forState:UIControlStateNormal];
+//    [log_wx setTitle:@"Please Sign In" forState:UIControlStateNormal];
+//    log_wx.titleLabel.font = [UIFont systemFontOfSize:13];
+//    [log_wx setTitleColor:[UIColor getColor:@"333333"] forState:UIControlStateNormal];
+//    log_wx.frame = CGRectMake(0, 25, loginView.width, wxImg.size.height);
+//    [log_wx addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+//    log_wx.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+//    log_wx.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+//    [log_wx setTitleEdgeInsets:UIEdgeInsetsMake(log_wx.imageView.frame.size.height+20,-log_wx.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+//    [log_wx setImageEdgeInsets:UIEdgeInsetsMake(0.0, 0.0,0.0, -log_wx.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
+//    [loginView addSubview:log_wx];
+//
+//    UIView *lines = [[UIView alloc]initWithFrame:CGRectMake(15, loginView.height/2+15, loginView.width-2*15, 1)];
+//    lines.backgroundColor = [UIColor getColor:@"e6e6e6"];
+//    lines.alpha = 0.5;
+//    [loginView addSubview:lines];
+//
+//    UILabel *words = [[UILabel alloc]init];
+//    words.text = @"Or";
+//    words.font = [UIFont systemFontOfSize:17];
+//    words.textAlignment = NSTextAlignmentCenter;
+//    words.textColor = [UIColor getColor:@"888888"];
+//    words.backgroundColor = [UIColor whiteColor];
+//    words.bounds = CGRectMake(0, 0, 50, 30);
+//    words.center = lines.center;
+//    [loginView addSubview:words];
+//
+//
+//    NSArray *imgArr = @[@"sina",@"tencentqq",@"facebook"];
+//    CGFloat btnWith = 40;
+//    CGFloat margin = (loginView.width - imgArr.count*btnWith)/(imgArr.count+1);
+//    for (NSInteger i = 0; i < imgArr.count; i++) {
+//        NSString *imgStr = imgArr[i];
+//
+//        UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        loginBtn.tag = PDAPPLoginTypeSina+i;
+//        loginBtn.adjustsImageWhenHighlighted = NO;
+//        UIImage *btnImg = [UIImage scaleFromImage:[UIImage imageNamed:imgStr] toSize:CGSizeMake(btnWith, btnWith)];
+//        [loginBtn setImage:btnImg forState:UIControlStateNormal];
+//        loginBtn.bounds = CGRectMake(0, 0, btnImg.size.width, btnImg.size.height);
+//        loginBtn.center = CGPointMake(margin+i*(margin+btnWith)+btnWith/2, (loginView.height-CGRectGetMaxY(words.frame))/2+CGRectGetMaxY(words.frame));
+//        [loginBtn addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+//        [loginView addSubview:loginBtn];
+//    }
+//
+    self.tableView.contentInset = UIEdgeInsetsMake(_loginView.height-self.tableView.y, 0, 0, 0);
     
 }
 #pragma mark 更新UserInfo
 -(void)updateUserInfoWithURL:(NSString*)url userName:(NSString*)name{
     
     UIImage *placeHolder = [UIImage scaleFromImage:[UIImage imageNamed:@"default_head"] toSize:CGSizeMake(60, 60)];
-    [_userInfo sd_setImageWithURL:[NSURL URLWithString:url] forState:UIControlStateNormal placeholderImage:placeHolder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [_userInfo setImage:[image drawCircleImageWithImage:[UIImage scaleFromImage:image toSize:placeHolder.size] WithCornerRadius:placeHolder.size.width] forState:UIControlStateNormal];
-    }];
+    if (!url) {
+        [_userInfo setImage:placeHolder forState:UIControlStateNormal];
+    }else{
+        [_userInfo sd_setImageWithURL:[NSURL URLWithString:url] forState:UIControlStateNormal placeholderImage:placeHolder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [_userInfo setImage:[image drawCircleImageWithImage:[UIImage scaleFromImage:image toSize:placeHolder.size] WithCornerRadius:placeHolder.size.width] forState:UIControlStateNormal];
+        }];
+    }
     [_userInfo setTitle:name forState:UIControlStateNormal];
     _userInfo.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     _userInfo.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -279,7 +348,7 @@
             [self logoutWithSina];
             break;
         case PDAPPLoginTypeQQ://twitter登出
-            [self logoutWithTwtter];
+            [self logoutWithQQ];
             break;
         case PDAPPLoginTypeFacebook://facebook登出
             [self logoutWithFacebook];
@@ -289,14 +358,20 @@
     }
 }
 #pragma mark 登入成功
--(void)loginSuccessful{
+-(void)loginSuccessful:(NSNotification*)notify{
     
     [self setupLogoutItem]; //添加logout按钮
     [self.loginView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.loginView removeFromSuperview];
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.loginView = nil;
     
-    [self loadUserInfoData];//记载登录用户数据
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    if (notify.userInfo) {
+        NSDictionary *userInfo = notify.userInfo;
+        [self updateUserInfoWithURL:[userInfo objectForKey:@"headimgurl"] userName:[userInfo objectForKey:@"nickname"]];
+    }else{
+        [self loadUserInfoData];//记载登录用户数据
+    }
     
 }
 //上传登录用户信息
@@ -336,6 +411,8 @@
     [defaults removeObjectForKey:PD_APPTOKEN];
     [defaults removeObjectForKey:PD_APPUID];
     [defaults synchronize];
+    
+    [self updateUserInfoWithURL:nil userName:@"用户名"];
 }
 #pragma mark - 登入方式
 //新浪登入
@@ -372,13 +449,6 @@
 
 //Twitter登入
 - (void)loginWithQQ{
-//    //test
-//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-//    [userDefault setInteger:PDAPPLoginTypeQQ forKey:PD_APPLOGINBY];//记录app登入方式
-//    [self loginSuccessful];
-    
-//    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-//    [appDelegate initQQService];
     
     [IMQQService initQQService];
 
@@ -388,7 +458,7 @@
     //test
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [userDefault setInteger:PDAPPLoginTypeFacebook forKey:PD_APPLOGINBY];//记录app登入方式
-    [self loginSuccessful];
+    [self loginSuccessful:nil];
 
 }
 #pragma mark - 登出方式
@@ -404,9 +474,9 @@
     [self logoutSuccessful];
 }
 //Twitter登出
-- (void)logoutWithTwtter{
+- (void)logoutWithQQ{
     [self logoutSuccessful];
-
+    [IMQQService logoutQQService];
 }
 //facebook登出
 - (void)logoutWithFacebook{

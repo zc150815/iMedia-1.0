@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^QQCallBack)(id response,NSError* error);
+
 @interface IMQQService : NSObject
 
 
 +(void)initQQService;
 
+//+(void)getUserInfoWithCallBack:(QQCallBack)callBack;
 
++(void)logoutQQService;
 @end
