@@ -30,4 +30,6 @@ typedef void (^callBack)(id response,NSError* error);
 -(void)getWechatUserInfoWithCallBack:(callBack)callBack;
 //微博登录获取用户信息
 -(void)getWeiboUserInfoWithCallBack:(callBack)callBack;
+//QQ登录获取用户信息
+-(void)getQQUserInfoWithCallBack:(callBack)callBack;
 @end

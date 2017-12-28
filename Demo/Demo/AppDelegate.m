@@ -94,11 +94,4 @@
     return [WXApi handleOpenURL:url delegate:self];
 }
 
-//-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-//    NSLog(@"handleOpenURL = %@",url);
-//
-//    [QQApiInterface handleOpenURL:url delegate:self];
-//    return [TencentOAuth HandleOpenURL:url];
-//}
-
 @end

@@ -15,7 +15,5 @@ typedef void (^QQCallBack)(id response,NSError* error);
 
 +(void)initQQService;
 
-//+(void)getUserInfoWithCallBack:(QQCallBack)callBack;
-
 +(void)logoutQQService;
 @end

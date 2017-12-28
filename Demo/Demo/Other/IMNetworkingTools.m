@@ -116,6 +116,16 @@
 
 //QQ登录获取用户信息
 -(void)getQQUserInfoWithCallBack:(callBack)callBack{
-    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    NSString *accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:PD_ACCESSTOKEN];
+    NSString *userID = [[NSUserDefaults standardUserDefaults]objectForKey:PD_USERID];
+    NSString *appID = [[NSUserDefaults standardUserDefaults]objectForKey:PD_APPID];
+    [manager GET:@"https://graph.qq.com/user/get_user_info" parameters:@{@"access_token":accessToken,@"openid":userID,@"oauth_consumer_key":appID} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        callBack(responseObject,nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        callBack(nil,error);
+    }];
 }
 @end

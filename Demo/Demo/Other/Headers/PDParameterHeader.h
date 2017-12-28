@@ -63,7 +63,8 @@ static NSString * const PD_APPLOGINBY = @"PD_APPLOGINBY";//APP登入方式(微�
 static NSString * const PD_ACCESSTOKEN = @"PD_ACCESSTOKEN";//accessToken
 static NSString * const PD_USERID = @"PD_USERID";//微博userId
 static NSString * const PD_REFRESHTOKEN = @"PD_REFRESHTOKEN";//微博refreshToken
-
+static NSString * const PD_EXPIRATIONDATE= @"PD_EXPIRATIONDATE";//微博expirationDate
+static NSString * const PD_APPID = @"PD_APPID";//APP后台用户id
 
 
 
