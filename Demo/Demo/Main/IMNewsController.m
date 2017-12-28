@@ -119,6 +119,7 @@
 }
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
 
+    NSLog(@"navigationAction.request == %@",navigationAction.request.URL);
     if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
         
         [SVProgressHUD show];
@@ -134,7 +135,6 @@
         
     }
 }
-
 -(NSArray *)dataArr{
     if (!_dataArr) {
         _dataArr = [NSArray new];

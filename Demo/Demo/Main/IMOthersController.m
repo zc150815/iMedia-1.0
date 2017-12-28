@@ -128,7 +128,7 @@
                     //                    PD_NSLog(@"error===error===%@",error);
                     return;
                 }
-                //                PD_NSLog(@"加载新浪用户信息\n%@",response);
+                PD_NSLog(@"加载新浪用户信息\n%@",response);
                 NSString *name = response[@"screen_name"];
                 NSString *url = response[@"profile_image_url"];
                 
@@ -146,7 +146,7 @@
                     PD_NSLog(@"error===error===%@",error);
                     return;
                 }
-                PD_NSLog(@"加载新浪用户信息\n%@",response);
+                PD_NSLog(@"加载QQ用户信息\n%@",response);
                 NSString *name = response[@"nickname"];
                 NSString *url = response[@"figureurl_2"];
                 [self pullLoginUserInfoWithLoginType:PDAPPLoginTypeQQ userID:[[NSUserDefaults standardUserDefaults]objectForKey:PD_USERID] userName:name headeImagURL:url];
@@ -342,7 +342,7 @@
         [defaults setObject:model.data.ID forKey:PD_APPUID];
         [defaults setObject:model.data.token forKey:PD_APPTOKEN];
         [defaults synchronize];
-        
+//        9581d30ce57b35766b0fdbfd5be5fb9d
     }];
 }
 #pragma mark 登出成功
@@ -387,11 +387,6 @@
     }else{
         NSLog(@"失败失败");
     }
-    
-//    //test
-//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-//    [userDefault setInteger:PDAPPLoginTypeWechat forKey:PD_APPLOGINBY];//记录app登入方式
-//    [self loginSuccessful];
 
 }
 
@@ -403,11 +398,11 @@
 }
 //facebook登入
 - (void)loginWithFacebook{
-    //test
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setInteger:PDAPPLoginTypeFacebook forKey:PD_APPLOGINBY];//记录app登入方式
-    [self loginSuccessful];
-
+//    //test
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    [userDefault setInteger:PDAPPLoginTypeFacebook forKey:PD_APPLOGINBY];//记录app登入方式
+//    [self loginSuccessful];
+    [[PDPublicTools sharedPublicTools]showMessage:@"待开放" duration:3];
 }
 #pragma mark - 登出方式
 //新浪登出

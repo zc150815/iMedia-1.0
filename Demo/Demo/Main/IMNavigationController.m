@@ -45,14 +45,6 @@
         [leftButton addTarget:self action:@selector(popController) forControlEvents:UIControlEventTouchUpInside];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
         
-        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *shareImg = [UIImage imageNamed:@"share"];
-        [rightButton setImage:[UIImage scaleFromImage:shareImg toSize:CGSizeMake(21/shareImg.size.height*shareImg.size.width, 21)] forState:UIControlStateNormal];
-        rightButton.bounds = CGRectMake(0, 0, 50, 21);
-        rightButton.adjustsImageWhenHighlighted = NO;
-        rightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        [rightButton addTarget:self action:@selector(shareBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
         
         viewController.hidesBottomBarWhenPushed = YES;
         
