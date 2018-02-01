@@ -128,4 +128,20 @@
         callBack(nil,error);
     }];
 }
+
+
+
+-(void)checkFIRVersionWithCallBack:(callBack)callBack{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    
+    NSString *url = [NSString stringWithFormat:@"http://api.fir.im/apps/latest/%@",@"5a4b6f0a959d692f020007e9"];
+    [manager GET:url parameters:@{@"api_token":@"faaa8aa9cb38d14c63d70194112194bd"} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        callBack(responseObject,nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        callBack(nil,error);
+    }];
+}
+
 @end

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3D5141347B4ABCFE1E1FA871 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C42E64FF1A0626DF38264886 /* libPods-Demo.a */; };
+		9D45CC391FFB5296008DAB23 /* PDSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D45CC371FFB5295008DAB23 /* PDSettingsController.m */; };
+		9D7E18E51FFC8227004DB0CC /* IMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E18E41FFC8227004DB0CC /* IMMainViewController.m */; };
+		9D7E18EA1FFC9FBD004DB0CC /* IMNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E18E91FFC9FBD004DB0CC /* IMNewsCell.m */; };
 		9DD582F61FECC2CB00548647 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD582F51FECC2CB00548647 /* AppDelegate.m */; };
 		9DD582FE1FECC2CB00548647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD582FD1FECC2CB00548647 /* Assets.xcassets */; };
 		9DD583041FECC2CB00548647 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD583031FECC2CB00548647 /* main.m */; };
@@ -53,6 +56,12 @@
 /* Begin PBXFileReference section */
 		35BC1CCE1248B41EDB53DD0C /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		680B772A3E06311828316083 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		9D45CC371FFB5295008DAB23 /* PDSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSettingsController.m; sourceTree = "<group>"; };
+		9D45CC381FFB5296008DAB23 /* PDSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSettingsController.h; sourceTree = "<group>"; };
+		9D7E18E31FFC8227004DB0CC /* IMMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMMainViewController.h; sourceTree = "<group>"; };
+		9D7E18E41FFC8227004DB0CC /* IMMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMMainViewController.m; sourceTree = "<group>"; };
+		9D7E18E81FFC9FBD004DB0CC /* IMNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMNewsCell.h; sourceTree = "<group>"; };
+		9D7E18E91FFC9FBD004DB0CC /* IMNewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMNewsCell.m; sourceTree = "<group>"; };
 		9DD582F11FECC2CB00548647 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD582F41FECC2CB00548647 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9DD582F51FECC2CB00548647 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -166,6 +175,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9D7E18E61FFC9F7A004DB0CC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D45CC381FFB5296008DAB23 /* PDSettingsController.h */,
+				9D45CC371FFB5295008DAB23 /* PDSettingsController.m */,
+				9DD583131FECC30C00548647 /* IMTabBarController.h */,
+				9DD5830D1FECC30C00548647 /* IMTabBarController.m */,
+				9DD5830B1FECC30C00548647 /* IMNavigationController.h */,
+				9DD583121FECC30C00548647 /* IMNavigationController.m */,
+				9D7E18E31FFC8227004DB0CC /* IMMainViewController.h */,
+				9D7E18E41FFC8227004DB0CC /* IMMainViewController.m */,
+				9DD583161FECC30C00548647 /* IMNewsController.h */,
+				9DD5830F1FECC30C00548647 /* IMNewsController.m */,
+				9DD5830C1FECC30C00548647 /* IMOthersController.h */,
+				9DD583141FECC30C00548647 /* IMOthersController.m */,
+				9DD583281FECD62900548647 /* IMIndexController.h */,
+				9DD583291FECD62900548647 /* IMIndexController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9D7E18E71FFC9F8A004DB0CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DD5834D1FF1E46100548647 /* IMModel.h */,
+				9DD5834E1FF1E46100548647 /* IMModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9D7E18EB1FFC9FC9004DB0CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D7E18E81FFC9FBD004DB0CC /* IMNewsCell.h */,
+				9D7E18E91FFC9FBD004DB0CC /* IMNewsCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9DD582E81FECC2CB00548647 = {
 			isa = PBXGroup;
 			children = (
@@ -206,18 +254,9 @@
 		9DD5830A1FECC30C00548647 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				9DD583131FECC30C00548647 /* IMTabBarController.h */,
-				9DD5830D1FECC30C00548647 /* IMTabBarController.m */,
-				9DD5830B1FECC30C00548647 /* IMNavigationController.h */,
-				9DD583121FECC30C00548647 /* IMNavigationController.m */,
-				9DD583161FECC30C00548647 /* IMNewsController.h */,
-				9DD5830F1FECC30C00548647 /* IMNewsController.m */,
-				9DD5830C1FECC30C00548647 /* IMOthersController.h */,
-				9DD583141FECC30C00548647 /* IMOthersController.m */,
-				9DD583281FECD62900548647 /* IMIndexController.h */,
-				9DD583291FECD62900548647 /* IMIndexController.m */,
-				9DD5834D1FF1E46100548647 /* IMModel.h */,
-				9DD5834E1FF1E46100548647 /* IMModel.m */,
+				9D7E18E61FFC9F7A004DB0CC /* Controllers */,
+				9D7E18E71FFC9F8A004DB0CC /* Models */,
+				9D7E18EB1FFC9FC9004DB0CC /* Views */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -447,6 +486,8 @@
 				9DD583321FF0FC5300548647 /* ZCSliderView.m in Sources */,
 				9DD583351FF0FF5F00548647 /* UIView+ZCExtension.m in Sources */,
 				9DD583581FF1EF1700548647 /* AppDelegate+WeixinService.m in Sources */,
+				9D7E18EA1FFC9FBD004DB0CC /* IMNewsCell.m in Sources */,
+				9D45CC391FFB5296008DAB23 /* PDSettingsController.m in Sources */,
 				9DD5831C1FECC30D00548647 /* IMNavigationController.m in Sources */,
 				9DD583191FECC30D00548647 /* IMTabBarController.m in Sources */,
 				9DD583041FECC2CB00548647 /* main.m in Sources */,
@@ -461,6 +502,7 @@
 				9DD583651FF21D4100548647 /* AppDelegate+WeiboService.m in Sources */,
 				9DD583521FF1E78800548647 /* PDPublicTools.m in Sources */,
 				9DD583271FECCE7200548647 /* UIColor+ZCExtension.m in Sources */,
+				9D7E18E51FFC8227004DB0CC /* IMMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +541,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = YFJ578HBZ4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -554,6 +597,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YFJ578HBZ4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -577,6 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YFJ578HBZ4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -585,15 +630,17 @@
 				);
 				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/Other/wechat",
 					"$(PROJECT_DIR)/Demo/Other/weibo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ronglian.www.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ronglian.www.iMedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -604,6 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YFJ578HBZ4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -612,15 +660,17 @@
 				);
 				GCC_PREFIX_HEADER = Demo/PrefixHeader.pch;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Demo/Other/wechat",
 					"$(PROJECT_DIR)/Demo/Other/weibo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ronglian.www.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ronglian.www.iMedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

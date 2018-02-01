@@ -28,7 +28,7 @@
                 if (response.code) {
                     showM = [NSString stringWithFormat:@"code=%@\nstate=%@\nlang=%@\ncountry=%@",response.code,response.state,response.lang,response.country];
                     
-                    [[PDPublicTools sharedPublicTools]showMessage:showM duration:5];
+//                    [[PDPublicTools sharedPublicTools]showMessage:showM duration:5];
                     //                    PD_NSLog(@"%@",showM);
                     [self WXOauthSuccessful:response.code];
                 }

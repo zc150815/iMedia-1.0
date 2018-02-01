@@ -55,7 +55,7 @@
 -(void)setupChildController{
     
     [self addChildViewController:[[IMNewsController alloc]init] title:@"新闻" image:@"news_nomal" selectedImage:@"news_selected"];
-    [self addChildViewController:[[IMOthersController alloc]init] title:@"我的" image:@"news_nomal" selectedImage:@"news_selected"];
+    [self addChildViewController:[[IMOthersController alloc]init] title:@"我的" image:@"my_nomal" selectedImage:@"my_selected"];
     
 }
 

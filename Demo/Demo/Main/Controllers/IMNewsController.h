@@ -1,5 +1,5 @@
 //
-//  IMOthersController.h
+//  IMNewsController.h
 //  iMediaTest
 //
 //  Created by 123 on 2017/12/22.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMMainViewController.h"
 
-@interface IMOthersController : UIViewController
+@interface IMNewsController : IMMainViewController
 
 @end

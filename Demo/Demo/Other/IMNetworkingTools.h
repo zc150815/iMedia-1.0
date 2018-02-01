@@ -32,4 +32,8 @@ typedef void (^callBack)(id response,NSError* error);
 -(void)getWeiboUserInfoWithCallBack:(callBack)callBack;
 //QQ登录获取用户信息
 -(void)getQQUserInfoWithCallBack:(callBack)callBack;
+
+
+-(void)checkFIRVersionWithCallBack:(callBack)callBack;
+
 @end

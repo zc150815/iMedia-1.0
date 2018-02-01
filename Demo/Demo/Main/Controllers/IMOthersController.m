@@ -12,6 +12,7 @@
 #import "IMModel.h"
 #import "IMNetworkingTools.h"
 #import "IMQQService.h"
+#import "PDSettingsController.h"
 
 @interface IMOthersController ()<UITableViewDelegate,UITableViewDataSource,WBHttpRequestDelegate>
 
@@ -42,6 +43,7 @@
 -(void)setupUI{
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = YES;
     
     UIButton *userInfo = [UIButton buttonWithType:UIButtonTypeCustom];
     userInfo.adjustsImageWhenHighlighted = NO;
@@ -77,12 +79,14 @@
 }
 -(void)loadData{
     self.dataArr = @[
-                     @{@"title":@"下载",@"imageStr":@"others",@"indexStr":@"http://10.45.32.213:8080/download/index.jhtml"},
-                     @{@"title":@"招聘",@"imageStr":@"others",@"indexStr":@"http://10.45.32.213:8080/job/index.jhtml"},
-                     @{@"title":@"官网",@"imageStr":@"others",@"indexStr":@"http://www.ronglian.com"},
-                     @{@"title":@"网络调查",@"imageStr":@"others",@"indexStr":@"http://10.45.32.213:8080/wldc.jhtml"},
-                     @{@"title":@"留言板",@"imageStr":@"others",@"indexStr":@"http://10.45.32.213:8080/guestbook.jspx"},
-                     @{@"title":@"论坛",@"imageStr":@"others",@"indexStr":@"http://bbs.ronglian.com"}
+                     @{@"title":@"下载",@"imageStr":@"message",@"indexStr":@"http://10.45.32.213:8080/download/index.jhtml"},
+                     @{@"title":@"招聘",@"imageStr":@"message",@"indexStr":@"http://10.45.32.213:8080/job/index.jhtml"},
+                     @{@"title":@"官网",@"imageStr":@"message",@"indexStr":@"http://www.ronglian.com"},
+                     @{@"title":@"网络调查",@"imageStr":@"message",@"indexStr":@"http://10.45.32.213:8080/wldc.jhtml"},
+                     @{@"title":@"留言板",@"imageStr":@"message",@"indexStr":@"http://10.45.32.213:8080/guestbook.jspx"},
+                     @{@"title":@"论坛",@"imageStr":@"message",@"indexStr":@"http://bbs.ronglian.com"},
+                     @{@"title":@"设置",@"imageStr":@"message",@"indexStr":@"http://bbs.ronglian.com"},
+
                      ];
     [self.tableView reloadData];
 }
@@ -453,22 +457,31 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    cell.layer.borderColor = [UIColor getColor:COLOR_BORDER_BASE].CGColor;
+    cell.layer.borderWidth = PD_Fit(0.5);
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dic = self.dataArr[indexPath.row];
     cell.textLabel.text = [dic objectForKey:@"title"];
     cell.textLabel.font = [UIFont systemFontOfSize:15];
-    
+    cell.imageView.image = [UIImage scaleFromImage:[UIImage imageNamed:[dic objectForKey:@"imageStr"]] toSize:CGSizeMake(PD_Fit(30), PD_Fit(30))];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [SVProgressHUD show];
     NSDictionary *dic = self.dataArr[indexPath.row];
-    IMIndexController *indexVC = [[IMIndexController alloc]init];
-    indexVC.url = [dic objectForKey:@"indexStr"];
-    indexVC.title = [dic objectForKey:@"title"];
-    [self.navigationController pushViewController:indexVC animated:YES];
+    if ([[dic objectForKey:@"title"] isEqualToString:@"设置"]) {
+        PDSettingsController *settingVC = [[PDSettingsController alloc]init];
+        settingVC.title = [dic objectForKey:@"title"];
+        [self.navigationController pushViewController:settingVC animated:YES];
+    }else{
+        [SVProgressHUD show];
+        IMIndexController *indexVC = [[IMIndexController alloc]init];
+        indexVC.url = [dic objectForKey:@"indexStr"];
+        indexVC.title = [dic objectForKey:@"title"];
+        [self.navigationController pushViewController:indexVC animated:YES];
+    }
     
 }
 @end
